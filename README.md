@@ -9,11 +9,11 @@ class BarOperator : AbstractOperator<BarInfo>() {
     val log: Logger = LoggerFactory.getLogger(BarOperator::class.qualifiedName)
 
     override fun onDelete(foo: BarInfo) {
-        log.info("created bar with name ${foo.name} and parameter = ${foo.parameter}")
+        log.info("deleted 'bar' with name ${foo.name} and parameter = ${foo.parameter}")
     }
 
     override fun onAdd(foo: BarInfo) {
-        log.info("deleted bar with name ${foo.name} and parameter = ${foo.parameter}")
+        log.info("created 'bar' with name ${foo.name} and parameter = ${foo.parameter}")
     }
 }
 ```
@@ -38,5 +38,5 @@ kubectl create -f examples/bar.yaml
 kubectl delete cm my-bar
 ```
 
-#You should be able to see
-#![alt text](https://github.com/jvm-operators/scala-example-operator/raw/master/foo-operator.png "Terminal dump")
+You should be able to see
+![alt text](https://github.com/jvm-operators/kotlin-example-operator/raw/master/bar-operator.png "Terminal dump")

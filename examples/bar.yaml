@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-bar
+  labels:
+    radanalytics.io/kind: bar
+data:
+  config: |-
+    parameter: "#00ff00"

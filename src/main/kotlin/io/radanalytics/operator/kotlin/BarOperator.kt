@@ -10,11 +10,11 @@ class BarOperator : AbstractOperator<BarInfo>() {
     val log: Logger = LoggerFactory.getLogger(BarOperator::class.qualifiedName)
 
     override fun onDelete(foo: BarInfo) {
-        log.info("created bar with name ${foo.name} and parameter = ${foo.parameter}")
+        log.info("deleted 'bar' with name ${foo.name} and parameter = ${foo.parameter}")
     }
 
     override fun onAdd(foo: BarInfo) {
-        log.info("deleted bar with name ${foo.name} and parameter = ${foo.parameter}")
+        log.info("created 'bar' with name ${foo.name} and parameter = ${foo.parameter}")
     }
 }
 

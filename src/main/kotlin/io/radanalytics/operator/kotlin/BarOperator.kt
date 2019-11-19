@@ -1,13 +1,13 @@
 package io.radanalytics.operator.kotlin
 
-import io.radanalytics.operator.common.*
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import io.radanalytics.operator.common.AbstractOperator
+import io.radanalytics.operator.common.EntityInfo
+import io.radanalytics.operator.common.Operator
+import javax.inject.Singleton
 
-@Operator(forKind = "bar", prefix = "radanalytics.io", infoClass = BarInfo::class)
+@Singleton
+@Operator(forKind = BarInfo::class, prefix = "radanalytics.io")
 class BarOperator : AbstractOperator<BarInfo>() {
-
-    val log: Logger = LoggerFactory.getLogger(BarOperator::class.qualifiedName)
 
     override fun onDelete(bar: BarInfo) {
         log.info("deleted 'bar' with name ${bar.name} and parameter = ${bar.parameter}")
@@ -18,9 +18,7 @@ class BarOperator : AbstractOperator<BarInfo>() {
     }
 }
 
-class BarInfo(var nameValue: String, var parameter: String) : EntityInfo {
-
-    constructor() : this("", "")
+class BarInfo(var nameValue: String, var parameter: String) : EntityInfo() {
 
     override fun setName(value: String) {
         nameValue = value

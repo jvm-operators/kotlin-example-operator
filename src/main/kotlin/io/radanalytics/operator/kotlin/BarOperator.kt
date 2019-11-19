@@ -3,7 +3,9 @@ package io.radanalytics.operator.kotlin
 import io.radanalytics.operator.common.AbstractOperator
 import io.radanalytics.operator.common.EntityInfo
 import io.radanalytics.operator.common.Operator
+import javax.inject.Singleton
 
+@Singleton
 @Operator(forKind = BarInfo::class, prefix = "radanalytics.io")
 class BarOperator : AbstractOperator<BarInfo>() {
 
